@@ -8,11 +8,11 @@ let enemyShotsPerSecond = 9;
 let enemyDamagePerShot = 9.5;
 let enemyAmmo = 25;
 
-let counter = 0;
+let millisecond = 0;
 
 while(heroHealth >=1 && enemyHealth >= 1) {
 
-  if(counter % 50 === 0) {
+  if(millisecond % 50 === 0) {
     heroAmmo = heroAmmo -1;
     enemyHealth = enemyHealth -heroDamagePerShot;
     console.log(`Hero Ammo: ${heroAmmo}, Enemy Health: ${enemyHealth}`);
@@ -20,7 +20,7 @@ while(heroHealth >=1 && enemyHealth >= 1) {
     // console.log('x');
   }
 
-  if(counter % 111.111111111 === 0) {
+  if(millisecond % 111.111111111 === 0) {
     enemyAmmo = enemyAmmo -1;
     heroHealth = heroHealth -enemyDamagePerShot;
     console.log(`Enemy Ammo: ${enemyAmmo}, Hero Health: ${heroHealth}`);
@@ -28,8 +28,8 @@ while(heroHealth >=1 && enemyHealth >= 1) {
     // console.log('x');
   }
 
-  console.log(`— ${counter}ms —`);
-  counter = counter +1;
+  console.log(`— ${millisecond}ms —`);
+  millisecond = millisecond +1;
 }
 
 
