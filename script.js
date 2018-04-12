@@ -1,35 +1,36 @@
-let heroHealth = 150;
-let heroShotsPerSecond = 20;
-let heroAmmo = 40;
-let heroDamagePerShot = 6;
-
-let enemyHealth = 200;
-let enemyShotsPerSecond = 9;
-let enemyDamagePerShot = 9.5;
-let enemyAmmo = 25;
+class Hero {
+  constructor(health, shotsPerSecond, ammo, damagePerShot) {
+    this.health = health;
+    this.shotsPerSecond = shotsPerSecond;
+    this.ammo = ammo;
+    this.damagePerShot = damagePerShot;
+  }
+}
 
 let millisecond = 0;
+let Tracer = new Hero (150, 20, 40, 6);
+let Soldier76 = new Hero (200, 9, 9.5, 25);
 
-while(heroHealth >=1 && enemyHealth >= 1) {
+while(Tracer.health >= 1 && Soldier76.health >= 1) {
 
   if(millisecond % 50 === 0) {
-    heroAmmo = heroAmmo -1;
-    enemyHealth = enemyHealth -heroDamagePerShot;
-    console.log(`Hero Ammo: ${heroAmmo}, Enemy Health: ${enemyHealth}`);
+    Tracer.ammo--;
+    Soldier76.health -= Tracer.damagePerShot;
+    console.log(`Tracer Ammo: ${Tracer.ammo}, Soldier:76 Health: ${Soldier76.health}`);
   } else {
     // console.log('x');
   }
 
-  if(millisecond % 111.111111111 === 0) {
-    enemyAmmo = enemyAmmo -1;
-    heroHealth = heroHealth -enemyDamagePerShot;
-    console.log(`Enemy Ammo: ${enemyAmmo}, Hero Health: ${heroHealth}`);
+  if(millisecond % 111 === 0) {
+    Soldier76.ammo--;
+    Tracer.health -= Soldier76.damagePerShot;
+    console.log(`Soldier:76 Ammo: ${Soldier76.ammo}, Tracer Health: ${Tracer.health}`);
   } else {
     // console.log('x');
   }
 
   console.log(`— ${millisecond}ms —`);
-  millisecond = millisecond +1;
+  millisecond = millisecond + 1;
 }
 
 
