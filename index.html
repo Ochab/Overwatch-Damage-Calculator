@@ -10,10 +10,23 @@
         <link rel="manifest" href="site.webmanifest">
         <link rel="apple-touch-icon" href="icon.png">
         <!-- Place favicon.ico in the root directory -->
+        <style>
+            div {
+                font-size: 11px;
+                font-weight: 600;
+                font-family: arial;
+            }
+            div:nth-child(even) {
+                background: #ddd;
+            }
+            div:nth-child(odd) {
+                background: #eee;
+            }
+        </style>
     </head>
     <body>
 
-        <section class="show-stuff"></section>
+        <section id="show-stuff"></section>
 
         <script src="script.js"></script>
         <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->

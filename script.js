@@ -19,7 +19,7 @@ function fight(redHero, blueHero) {
     if(millisecond % (1000/redHero.shotsPerSecond) === 0) {
       redHero.ammo--;
       blueHero.health -= redHero.damagePerShot;
-      console.log(`${redHero.name} Ammo: ${redHero.ammo}, ${blueHero.name} Health: ${blueHero.health}`);
+      outputToPage(`———————— ${redHero.name} Ammo: ${redHero.ammo}, ${blueHero.name} Health: ${blueHero.health}`);
     } else {
       // console.log('x');
     }
@@ -27,14 +27,25 @@ function fight(redHero, blueHero) {
     if(millisecond % (1000/blueHero.shotsPerSecond) === 0) {
       blueHero.ammo--;
       redHero.health -= blueHero.damagePerShot;
-      console.log(`${blueHero.name} Ammo: ${blueHero.ammo}, ${redHero.name} Health: ${redHero.health}`);
+      outputToPage(`———————— ${blueHero.name} Ammo: ${blueHero.ammo}, ${redHero.name} Health: ${redHero.health}`);
     } else {
       // console.log('x');
     }
 
-    console.log(`— ${millisecond}ms —`);
+    outputToPage(`— ${millisecond}ms —`);
     millisecond++;
   }
 }
 
-fight(Tracer, Soldier76);
+function outputToPage(output) { // replace your calls to _print_ with _myprint_
+  var div = document.createElement("div"); // Create a <p> element
+  var t = document.createTextNode(output); // Create a text node
+  div.appendChild(t);
+  document.getElementById("show-stuff").appendChild(div);
+}
+
+(function() {
+  // your page initialization code here
+  // the DOM will be available here
+  fight(Tracer, Soldier76);
+})();
